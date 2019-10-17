@@ -65,8 +65,8 @@ public class CompanyDAO {
 		
 		if (department.equals("")) {
 			String sql = "select id,name,department,salary,creation_date,"
-					+ "(select count(*) from company where department=department) as dep_cnt "
-					+ " from company where department=department";
+					+ "(select count(*) from company where department=b.department) as dep_cnt "
+					+ " from company b";
 			Company cmp = new Company();
 			List<Company> list = new ArrayList<>();
 
