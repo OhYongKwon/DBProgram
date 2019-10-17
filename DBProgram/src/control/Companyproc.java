@@ -44,8 +44,19 @@ public class Companyproc {
 	}
 	//삭제
 	public void deleteCompany() {
-		System.out.println("삭제 id:");
-		int id = sc.nextInt();
+		int id=0;
+		boolean check = true;
+		while (check)
+			try {
+				System.out.println("삭제 id:");
+				id= sc.nextInt(); // (문자입력) error 발생가능
+				sc.nextLine();
+				check = false;
+			} catch (Exception e) {
+				sc.nextLine();
+				System.out.println("숫자를 입력해주세요.");
+			}
+		
 		
 		Company cmp = new Company();
 		cmp.setId(id);
@@ -54,9 +65,18 @@ public class Companyproc {
 	}
 	// 업데이트
 		public void updateCompany() {
-			System.out.println("부서변경 id:");
-			int id = sc.nextInt();
-			sc.nextLine();
+			int id=0;
+			boolean check = true;
+			while (check)
+				try {
+					System.out.println("부서 변경 id: ");
+					id= sc.nextInt(); // (문자입력) error 발생가능
+					sc.nextLine();
+					check = false;
+				} catch (Exception e) {
+					sc.nextLine();
+					System.out.println("숫자를 입력해주세요.");
+				}
 
 			System.out.println("부서 변경: ");
 			String department = sc.nextLine();
